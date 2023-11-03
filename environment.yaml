@@ -1,0 +1,7 @@
+name: cassini_hackathon
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - geopandas
+  - rasterio
