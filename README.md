@@ -1,5 +1,2 @@
-# cassini_wageningen_team
+# oDAM cassini project readme
 
-Hi Cedric! I am learning beacuse of you! yeeeey
-
-Hahaha, me toooo :D - by Janina
