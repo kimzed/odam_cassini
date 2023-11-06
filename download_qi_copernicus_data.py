@@ -55,7 +55,7 @@ def generate_time_series(
     # Get the results as a Python list.
     values = time_series.getInfo()
 
-    df_time_series = pd.DataFrame(values, columns=["timestamp", "mean_temp"])
+    df_time_series = pd.DataFrame(values, columns=["timestamp", "mean_daily"])
     df_time_series["timestamp"] = pd.to_datetime(df_time_series["timestamp"], unit="ms")
     df_time_series.set_index("timestamp", inplace=True)
 
@@ -81,10 +81,20 @@ temperature_time_series = generate_time_series(
 )
 
 
-evapotranspiration = generate_time_series(
+evapotranspiration_time_series = generate_time_series(
     "ECMWF/ERA5_LAND/DAILY_AGGR",
     "potential_evaporation_sum",
     path_water_basin,
     "2000-01-01",
     "2001-01-01",
+)
+
+precipitation_time_series.to_csv(
+    "/home/cedric/repos/cassini_data/precipitation_time_series.csv"
+)
+temperature_time_series.to_csv(
+    "/home/cedric/repos/cassini_data/temperature_time_series.csv"
+)
+evapotranspiration_time_series.to_csv(
+    "/home/cedric/repos/cassini_data/evapotranspiration_time_series.csv"
 )
